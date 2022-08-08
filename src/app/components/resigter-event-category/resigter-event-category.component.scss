@@ -1,0 +1,43 @@
+.header-col-title {
+  text-align: center;
+  color: #3a86ff;
+}
+.card-header-title {
+  color: #3a86ff;
+}
+.card-header-title:hover {
+  cursor: pointer;
+}
+
+.act-openCard {
+  float: right;
+  :hover {
+    cursor: pointer;
+  }
+}
+.btn-clear {
+  margin-right: 10px;
+}
+.btn-act {
+  float: right;
+}
+
+p {
+  display: block;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+nb-card-body {
+  display: block;
+
+  .card-body {
+    display: flex;
+    margin-top: 15px 15px;
+  }
+
+  .card-resig {
+    width: 100%;
+    margin-right: 20px;
+  }
+}

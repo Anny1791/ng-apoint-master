@@ -1,0 +1,69 @@
+
+.header-col-title {
+  text-align: center;
+  color: #3a86ff;
+}
+
+.card-header-title:hover {
+  cursor: pointer;
+}
+.card-header-title {
+  color: #3a86ff;
+}
+
+.btn-new {
+  float: right;
+}
+.act-openCard {
+  float: right;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.btn-clear {
+  margin-right: 10px;
+}
+.btn-act {
+  float: right;
+  margin-top: 20px;
+}
+
+nb-card-body {
+  display: block;
+
+  .card-search {
+    display: flex;
+    margin-top: 15px 15px;
+  }
+
+  .card-search-body {
+    width: 100%;
+    margin-right: 20px;
+  }
+}
+:host ::ng-deep ng2-st-tbody-custom {
+  a.ng2-smart-action.ng2-smart-action-custom-custom {
+    display: contents;
+  }
+}
+
+:host ::ng-deep ng2-st-tbody-custom > a > img {
+  margin-left: 10px;
+}
+
+:host ::ng-deep ng2-smart-table .ng2-smart-actions > ng2-st-tbody-edit-delete {
+  position: fixed;
+}
+:host ::ng-deep ng2-smart-table .ng2-smart-actions {
+  width: 50px;
+}
+:host ::ng-deep ng2-smart-table .page-link {
+  position: relative;
+  display: block;
+  margin-left: -1px;
+}
+
+:host ::ng-deep ng2-smart-table nav.ng2-smart-pagination-nav {
+  float: left;
+}

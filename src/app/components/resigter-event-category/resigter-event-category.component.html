@@ -1,0 +1,107 @@
+<nb-layout>
+
+  <nb-layout-column>
+    <h3 *ngIf="id != '0'" class="header-col-title">Update Event Category</h3>
+    <h3 *ngIf="id === '0'" class="header-col-title">Resigter Event Category</h3>
+
+    <nb-card [formGroup]="eventForm">
+      <nb-card-header class="card-header-title" *ngIf="!iscard" (click)="openCard()"
+        >Event Category
+        <nb-action class="act-openCard">
+          <nb-icon
+            *ngIf="!iscard"
+            (click)="openCard()"
+            icon="arrow-ios-downward-outline"
+          ></nb-icon>
+          <nb-icon
+            *ngIf="iscard"
+            (click)="openCard()"
+            icon="arrow-ios-upward-outline"
+          ></nb-icon>
+        </nb-action>
+      </nb-card-header>
+      <nb-card-header class="card-header-title" *ngIf="iscard" (click)="openCard()"
+        >Event Category
+        <nb-action class="act-openCard">
+          <nb-icon
+            *ngIf="!iscard"
+            (click)="openCard()"
+            icon="arrow-ios-downward-outline"
+          ></nb-icon>
+          <nb-icon
+            *ngIf="iscard"
+            (click)="openCard()"
+            icon="arrow-ios-upward-outline"
+          ></nb-icon>
+        </nb-action>
+      </nb-card-header>
+      <nb-card-body *ngIf="!iscard">
+        <div class="card-body">
+          <div class="card-resig">
+            <p>Name <span style="color: #ff0000">*</span></p>
+            <input
+              autofocus
+              formControlName="name"
+              type="text"
+              nbInput
+              fullWidth
+              status="basic"
+              placeholder="Name"
+            />
+          </div>
+
+          <div class="card-resig">
+            <p>Description</p>
+            <textarea
+              formControlName="description"
+              nbInput
+              fullWidth
+              placeholder="Description"
+            ></textarea>
+          </div>
+        </div>
+
+        <p>Active</p>
+        <nb-checkbox
+          formControlName="active_flag"
+          (checkedChange)="toggle($event)"
+          status="primary"
+          >Active</nb-checkbox
+        >
+      </nb-card-body>
+    </nb-card>
+
+    <div class="btn-act">
+      <button
+        (click)="clearEventCategoryForm()"
+        class="btn-clear"
+        size="medium"
+        nbButton
+        status="primary"
+      >
+        Clear
+      </button>
+      <button
+        *ngIf="id === '0'"
+        (click)="createEventCategory()"
+        (click)="showToast(physicalPositions.BOTTOM_RIGHT, 'warning')"
+        class="btn-save"
+        size="medium"
+        nbButton
+        status="primary"
+      >
+        Save
+      </button>
+      <button
+        *ngIf="id != '0'"
+        (click)="updateEventCategory()"
+        class="btn-save"
+        size="medium"
+        nbButton
+        status="primary"
+      >
+        Update
+      </button>
+    </div>
+  </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,73 @@
+<nb-layout>
+
+
+  <nb-layout-column>
+    <h3 class="header-col-title">
+      Search Event Category
+      <button (click)="resigterEventCategory()" class="btn-new" size="medium" nbButton status="primary">
+        New
+      </button>
+    </h3>
+
+    <nb-card [formGroup]="eventForm">
+      <nb-card-header class="card-header-title" *ngIf="!iscard" (click)="openCardSearch()">Search
+        <nb-action class="act-openCard">
+          <nb-icon *ngIf="!iscard" (click)="openCardSearch()" icon="arrow-ios-downward-outline"></nb-icon>
+          <nb-icon *ngIf="iscard" (click)="openCardSearch()" icon="arrow-ios-upward-outline"></nb-icon>
+        </nb-action>
+      </nb-card-header>
+      <nb-card-header class="card-header-title" *ngIf="iscard" (click)="openCardSearch()">Search
+        <nb-action class="act-openCard">
+          <nb-icon *ngIf="!iscard" (click)="openCardSearch()" icon="arrow-ios-downward-outline"></nb-icon>
+          <nb-icon *ngIf="iscard" (click)="openCardSearch()" icon="arrow-ios-upward-outline"></nb-icon>
+        </nb-action>
+      </nb-card-header>
+
+      <nb-card-body *ngIf="iscard">
+        <div class="card-search">
+          <div class="card-search-body">
+            <p>Name <span style="color: #ff0000">*</span></p>
+            <input formControlName="name" type="text" nbInput fullWidth status="basic" placeholder="Name" />
+          </div>
+          <div class="card-search-body">
+            <p>Active</p>
+            <nb-select formControlName="active_flag" fullWidth placeholder="Active">
+              <nb-option style="color: #ccc" [value]="null">--</nb-option>
+              <nb-option [value]="true">Active</nb-option>
+              <nb-option [value]="false">No Active</nb-option>
+            </nb-select>
+          </div>
+        </div>
+
+        <div class="btn-act">
+          <button (click)="clearEventCategoryForm()" class="btn-clear" size="medium" nbButton status="primary">
+            Clear
+          </button>
+          <button class="btn-search" size="medium" nbButton status="primary" (click)="searchEventCategory()">
+            Search
+          </button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card>
+      <nb-card-header class="card-header-title" *ngIf="!iscardlist" (click)="openCardList()">Event Category List
+        <nb-action class="act-openCard">
+          <nb-icon *ngIf="!iscard" (click)="openCardList()" icon="arrow-ios-downward-outline"></nb-icon>
+          <nb-icon *ngIf="iscard" (click)="openCardList()" icon="arrow-ios-upward-outline"></nb-icon>
+        </nb-action>
+      </nb-card-header>
+      <nb-card-header class="card-header-title" *ngIf="iscardlist" (click)="openCardList()">Event Category List
+        <nb-action class="act-openCard">
+          <nb-icon *ngIf="!iscard" (click)="openCardList()" icon="arrow-ios-downward-outline"></nb-icon>
+          <nb-icon *ngIf="iscard" (click)="openCardList()" icon="arrow-ios-upward-outline"></nb-icon>
+        </nb-action>
+      </nb-card-header>
+      <nb-card-body *ngIf="!iscardlist">
+        <ng2-smart-table class="table table-hover" [settings]="settings" [source]="event_category"
+          (custom)="onCustomAction($event)">
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

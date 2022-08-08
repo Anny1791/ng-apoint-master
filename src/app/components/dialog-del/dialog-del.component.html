@@ -1,0 +1,14 @@
+<nb-card style="width:500px">
+  <!-- <nb-card-header>Messege</nb-card-header> -->
+  <nb-card-body>
+    <p>Are you sure you want to delete this event ?</p>
+    <div class="btn-dialog">
+      <button nbButton hero style="margin-right: 10px ;" shape="round" status="primary"  (click)="cancel()">Cancel</button>
+      <button nbButton hero status="primary" shape="round" style="width: 96.344px;" (click)="deleteEventCategory()"
+        (click)="showToast(physicalPositions.BOTTOM_RIGHT, 'success')">Yes</button>
+  </div>
+  </nb-card-body>
+
+
+
+</nb-card>
